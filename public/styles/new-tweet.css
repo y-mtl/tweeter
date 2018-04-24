@@ -1,0 +1,99 @@
+section.new-tweet {
+  background-color: #eee;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+section.new-tweet h2 {
+  border-bottom: 1px solid #888;
+  margin-top: 0;
+}
+
+section.new-tweet form {
+  background-color: ##244751;
+}
+
+form textarea {
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  padding: 5px;
+  width: 100%;
+}
+
+span.counter {
+  display: block;
+  float: right;
+  font-size: 0.8em;
+}
+
+span.counter.exceed {
+  color: #f46542;
+}
+
+/* tweet post */
+article.post-tweet {
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  margin-top: 25px;
+  opacity: 0.7; filter: alpha(opacity=70);
+}
+
+article.post-tweet:hover {
+  opacity: 1; filter: alpha(opacity=100);
+  -moz-opacity: 0.3;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+article.post-tweet header, article.post-tweet footer {
+  padding: 5px;
+}
+article.post-tweet header {
+  background-color: #eee;
+  height: 65px;
+  position: relative;
+}
+
+article.post-tweet header h3 {
+  float: left;
+  margin-left: 10px;
+  margin-top: 0;
+}
+
+article.post-tweet header img {
+  float: left;
+  left: 0;
+  height: 50px;
+  width: 50px;
+}
+
+article.post-tweet header span {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+}
+
+article.post-tweet header + p {
+  clear: both;
+  padding: 10px;
+}
+
+article.post-tweet footer {
+  border-top: 1px solid #eee;
+}
+
+article.post-tweet footer p {
+  font-size: 0.8em;
+}
+
+article.post-tweet footer span {
+  float: right;
+}
+
+article.post-tweet footer span i {
+  color: #00a087;
+  padding-left: 5px;
+}

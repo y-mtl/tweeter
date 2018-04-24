@@ -26,6 +26,12 @@ $( document ).ready(function(){
   var $tweet = createTweetElement(tweetData);
 
   function createTweetElement(data) {
+    var today = new Date();
+    var date_ms = Date.parse(today);
+    var diff = new Date(date_ms - tweetData.created_at);
+    var days = Math.floor(diff / (24*60*60*1000));
+
+    //console.log('back', days);
     var res = `<article class="post-tweet">\n
           <header>\n
             <img class="logo" src="${tweetData.user.avatars.small}">\n
@@ -34,7 +40,7 @@ $( document ).ready(function(){
           </header>\n
           <p>${tweetData.content.text}</p>\n
           <footer>\n
-            <p>${tweetData.created_at}\n
+            <p>${days} days ago\n
               <span>\n
                 <i class="fa fa-flag"></i>\n
                 <i class="fa fa-retweet"></i>\n
@@ -44,24 +50,10 @@ $( document ).ready(function(){
           </footer>\n
         </article>\n `;
       return res;
-
   }
   // Test / driver code (temporary)
-  console.log($tweet); // to see what it looks like
-  // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  // console.log($tweet); // to see what it looks like to add it to the page so we can make sure it's got all the right elements, classes, etc.
   $('#tweets-container').append($tweet);
-
-// var dat1 = new Date(2010, 4, 15);  //2010/05/15
-// var dat2 = new Date(2010, 5, 20);  //2010/06/20
-// var diff = (dat2.getTime() - dat1.getTime()) / (1000 * 60 * 60 *24);
-// document.writeln(diff + '日の差があります');
-// //36日の差があります
-// 経過ミリ秒÷(1000ミリ秒×60秒×60分×24時間)
-
-
-
-
-
 
 
 });

@@ -32,14 +32,14 @@ span.counter.exceed {
 }
 
 /* tweet post */
-article.post-tweet {
+#tweets-container article {
   border: 2px solid #ddd;
   border-radius: 5px;
   margin-top: 25px;
   opacity: 0.7; filter: alpha(opacity=70);
 }
 
-article.post-tweet:hover {
+#tweets-container article:hover {
   opacity: 1; filter: alpha(opacity=100);
   -moz-opacity: 0.3;
   -webkit-transition: 0.3s ease-in-out;
@@ -48,52 +48,52 @@ article.post-tweet:hover {
   transition: 0.3s ease-in-out;
 }
 
-article.post-tweet header, article.post-tweet footer {
-  padding: 5px;
+#tweets-container article header, #tweets-container article footer {
+  padding: 10px;
 }
-article.post-tweet header {
+#tweets-container article header {
   background-color: #eee;
-  height: 65px;
+  height: 70px;
   position: relative;
 }
 
-article.post-tweet header h3 {
+#tweets-container article header h3 {
   float: left;
   margin-left: 10px;
   margin-top: 0;
 }
 
-article.post-tweet header img {
+#tweets-container article header img {
   float: left;
   left: 0;
   height: 50px;
   width: 50px;
 }
 
-article.post-tweet header span {
+#tweets-container article header span {
   position: absolute;
-  right: 5px;
+  right: 10px;
   top: 10px;
 }
 
-article.post-tweet header + p {
+#tweets-container article header + p {
   clear: both;
   padding: 10px;
 }
 
-article.post-tweet footer {
+#tweets-container article footer {
   border-top: 1px solid #eee;
 }
 
-article.post-tweet footer p {
+#tweets-container article footer p {
   font-size: 0.8em;
 }
 
-article.post-tweet footer span {
+#tweets-container article footer span {
   float: right;
 }
 
-article.post-tweet footer span i {
+#tweets-container article footer span i {
   color: #00a087;
   padding-left: 5px;
 }

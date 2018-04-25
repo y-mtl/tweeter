@@ -4,10 +4,6 @@ $( document ).ready(function(){
     var textInput = $(this).val();
     //console.log(textInput);
   });
-  // $('input[type=\'submit\']').on('change', function(){
-  //   var textInput = $(this).val();
-  //   console.log(textInput);
-  // });
   $('textarea').on('keyup', function(){
     //var count = this.value.length;
     var charCurrent = $(this).val().length;
@@ -22,9 +18,3 @@ $( document ).ready(function(){
     $(this).siblings('span.counter').text(charCount);
   });
 });
-
-// change event
-// keydown event
-// keyup event
-// blur event
-// keypress event

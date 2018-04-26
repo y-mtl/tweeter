@@ -17,4 +17,10 @@ $( document ).ready(function(){
     }
     $(this).siblings('span.counter').text(charCount);
   });
+
+  $('nav a.btn-edit').on('click', function(){
+    $('main .new-tweet').slideToggle('slow');
+    $('main .new-tweet textarea').focus();
+  });
+
 });

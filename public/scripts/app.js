@@ -1,54 +1,7 @@
-// Fake data taken from tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": {
-        "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-        "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-        "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-      },
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": {
-        "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-        "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-        "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-      },
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  },
-  {
-    "user": {
-      "name": "Johann von Goethe",
-      "avatars": {
-        "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-        "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-        "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-      },
-      "handle": "@johann49"
-    },
-    "content": {
-      "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-    },
-    "created_at": 1461113796368
-  }
-];
-
 $( document ).ready(function(){
 
   function renderTweets(tweets) {
+     $('#tweets-container').empty();
     var output = [];
     let $container = $("#tweets-container");
 
@@ -62,9 +15,8 @@ $( document ).ready(function(){
       tweets[i]['days'] = days_diff;
 
       output = createTweetElement(tweets[i]);
-      $container.append(output);
+      $container.prepend(output);
     }
-
     return $container;
   }
 
@@ -78,11 +30,56 @@ $( document ).ready(function(){
       let $p = $("<p>").text(tweet.content.text).appendTo($tweet);
 
       let $footer = $("<footer>").appendTo($tweet);
-      let $footer_p = $("<p>").text(`${tweet.days} days ago`).appendTo($footer);
+      let $footer_p = $("<p>").text(tweet.days + 'days ago').appendTo($footer);
       let $footer_span = $("<span>").html('<i class="fa fa-flag"></i>\n<i class="fa fa-retweet"></i>\n<i class="fa fa-heart"></i>').appendTo($footer_p);
 
-      return $tweet;console.log(tweet);
+      return $tweet;
   }
-  renderTweets(data);
+  //renderTweets(data);
+
+  function loadTweets(){
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      cache: false,
+      dataType: 'json',
+      success: function(tweetsData){
+        renderTweets(tweetsData);
+      }
+    });
+  }
+  loadTweets();
+
+  // form submission
+  $postUrl = '/tweets';
+  $('.new-tweet input[type="submit"]').on('click', function(e){
+    e.preventDefault();
+    //console.log('Sending it now.');
+    var tweetData = $(this).siblings('textarea[name=text]').val();
+
+    if (tweetData.length === 0){
+      $errorMsg = 'You can\'t leave it blank.';
+    } else if (tweetData.length > 140) {
+      $errorMsg = 'Character limit: 140!';
+    } else {
+      $errorMsg = '';
+    }
+    $('.new-tweet p.error').text($errorMsg);
+
+    tweetData = 'text=' + tweetData;
+    $.ajax({
+      url: $postUrl,
+      method: 'POST',
+      data: $(this).siblings('textarea').serialize(),
+      success: function(data, status, jqXHR){
+        if (status !== 'success') {
+          let errorMsg = 'There was an error. Please try again.';
+          throw "Request was not a success";
+        }
+
+        loadTweets();
+      }
+    })
+  });
 
 });

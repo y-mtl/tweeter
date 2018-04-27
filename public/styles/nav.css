@@ -1,55 +1,43 @@
-/* colours
-default green: #00a087
-default font: #e8fdff ;
-top btn border: #046556;
-
-*/
-nav {
+#nav-bar {
   background-color: #00a087;
   color: #e8fdff;
   height: 80px;
   position: relative;
-  padding: 0 2rem;
-}
+  padding: 0 2rem; }
+  #nav-bar .logo {
+    float: left;
+    height: 80px;
+    width: 80px; }
+  #nav-bar .header {
+    float: left;
+    font-size: 2rem;
+    margin-left: 10px;
+    height: 80px;
+    line-height: 80px; }
+  #nav-bar .btn-edit {
+    background-color: #046556;
+    border: 1px solid #046556;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: #00a087;
+    cursor: pointer;
+    float: right;
+    height: 65px;
+    line-height: 65px;
+    /*centerlize vertically*/
+    position: absolute;
+    top: 0;
+    right: 2rem;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    width: 120px;
+    transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out; }
+    #nav-bar .btn-edit:hover {
+      background-color: #fff; }
 
-#nav-bar .logo {
-  float: left;
-  height: 80px;
-  width: 80px;
-}
-
-#nav-bar .header {
-  float: left;
-  font-size: 2rem;
-  margin-left: 10px;
-  height: 80px;
-  line-height: 80px;
-}
-
-#nav-bar .btn-edit {
-  background-color: #046556;
-  border: 1px solid #046556;
-  border-radius: 5px;
-  color: #00a087;
-  cursor: pointer;
-  float: right;
-  height: 65px;
-  line-height: 65px;
-  /*centerlize vertically*/
-  position: absolute;
-  top: 0;
-  right: 2rem;
-  bottom: 0;
-  margin: auto;
-  text-align: center;
-  width: 120px;
-
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-#nav-bar .btn-edit:hover {
-  background-color: #fff;
-}
+/*# sourceMappingURL=nav.css.map */

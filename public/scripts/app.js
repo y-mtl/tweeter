@@ -30,7 +30,7 @@ $( document ).ready(function(){
       let $p = $("<p>").text(tweet.content.text).appendTo($tweet);
 
       let $footer = $("<footer>").appendTo($tweet);
-      let $footer_p = $("<p>").text(tweet.days + 'days ago').appendTo($footer);
+      let $footer_p = $("<p>").text(tweet.days + ' days ago').appendTo($footer);
       let $footer_span = $("<span>").html('<i class="fa fa-flag"></i>\n<i class="fa fa-retweet"></i>\n<i class="fa fa-heart"></i>').appendTo($footer_p);
 
       return $tweet;
@@ -64,7 +64,12 @@ $( document ).ready(function(){
     } else {
       $errorMsg = '';
     }
-    $('.new-tweet p.error').text($errorMsg);
+    $('.new-tweet .error').text($errorMsg);
+    $(function() {
+        setTimeout(function() { $(".new-tweet .error").fadeOut(1500); }, 3000)
+        $(".new-tweet .error").show();
+        setTimeout(function() { $(".new-tweet .error").fadeOut(1500); }, 3000)
+      });
 
     tweetData = 'text=' + tweetData;
     $.ajax({

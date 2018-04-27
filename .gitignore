@@ -3,3 +3,4 @@ node_modules/
 .DS_Store
 ajax-example.html
 package-lock.json
+mongo_example.js

@@ -48,58 +48,83 @@ span.counter.exceed {
   -moz-opacity: 0.3;
 }
 
-#tweets-container article header, #tweets-container article footer {
+#tweets-container header, #tweets-container footer {
   padding: 10px;
 }
-#tweets-container article header {
+#tweets-container header {
   background-color: #eee;
   height: 70px;
   position: relative;
 }
 
-#tweets-container article header h3 {
+#tweets-container header h3 {
   float: left;
   margin-left: 10px;
   margin-top: 0;
 }
 
-#tweets-container article header img {
+#tweets-container header img {
   float: left;
   left: 0;
   height: 50px;
   width: 50px;
 }
 
-#tweets-container article header span {
+#tweets-container header span {
   position: absolute;
   right: 10px;
   top: 10px;
 }
 
-#tweets-container article header + p {
+#tweets-container header + p {
   clear: both;
   padding: 10px;
 }
 
-#tweets-container article footer {
+#tweets-container footer {
   border-top: 1px solid #eee;
 }
 
-#tweets-container article footer p {
+#tweets-container footer p {
   font-size: 0.8em;
 }
 
-#tweets-container article footer span {
+#tweets-container footer span {
   float: right;
 }
 
-#tweets-container article footer span i {
+#tweets-container footer span i {
+  display: none;
   color: #00a087;
   padding-left: 5px;
 }
 
+#tweets-container:hover footer span i {
+  display: inline;
+}
+
+/*@keyframes show{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+#tweets-container footer span i {
+    display: none;
+}
+#tweets-container:hover footer span i{
+    display: block;
+    animation: show 1s linear 0s;
+}
+*/
+
+
+
 /* form error message */
-.new-tweet p.error {
+.new-tweet .error {
   color: #f46542;
+  padding-left: 10px;
 }
 

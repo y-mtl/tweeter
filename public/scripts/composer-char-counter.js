@@ -23,4 +23,12 @@ $( document ).ready(function(){
     $('main .new-tweet textarea').focus();
   });
 
+  // hover effect for social icons
+  // added 'document' since the article is dynamically added by js.
+  $(document).on('mouseenter', '#tweets-container article', function(){
+      $(this).addClass('icons-on');
+    }).on('mouseleave', '#tweets-container article', function() {
+      $(this).removeClass('icons-on');
+  });
+
 });

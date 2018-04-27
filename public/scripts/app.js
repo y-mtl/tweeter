@@ -10,16 +10,19 @@ $( document ).ready(function(){
         var unit = time > 1 ? ' seconds' : ' second';
     } else if(diff_sec < 3600){
         time = Math.floor(diff_sec/60);
-        var unit = time > 1 ? ' minutes' : ' minute';
+        unit = time > 1 ? ' minutes' : ' minute';
     } else if(diff_sec < 86400){
         time = Math.floor(diff_sec/3600);
-        var unit = time > 1 ? ' hours' : ' hour';
-    } else if(diff_sec < 31536000){
+        unit = time > 1 ? ' hours' : ' hour';
+    } else if(diff_sec < 2592000){
         time = Math.floor(diff_sec/86400);
-        var unit = time > 1 ? ' days' : ' day';
+        unit = time > 1 ? ' days' : ' day';
+    } else if(diff_sec < 31536000){
+        time = Math.floor(diff_sec/259200);
+        unit = time > 1 ? ' months' : ' month';
     } else {
         time = Math.floor(diff_sec/31536000);
-        var unit = time > 1 ? ' years' : ' year';
+        unit = time > 1 ? ' years' : ' year';
     }
     var res = time + ' '  + unit + ' ago';
     return res;

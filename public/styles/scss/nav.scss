@@ -1,0 +1,61 @@
+$font_default:      "Roboto Condensed", sans-serif;
+
+$color_black_dark:  #888;
+$color_blue_light:  #ddfffa;
+$color_green_dark:  #244751;
+$color_green_mid:   #046556;
+$color_green:       #00a087;
+$color_grey:        #eee;
+$color_grey_off_white: #aaa;
+$color_red:         #f46542;
+$color_white_bg:    #fff;
+
+@mixin transition($r) {
+    transition: $r;
+    -ms-transition: $r;
+    -moz-transition: $r;
+    -o-transition: $r;
+    -webkit-transition: $r;
+}
+
+#nav-bar {
+  background-color: $color_green;
+  color: $color_blue_light;
+  height: 80px;
+  position: relative;
+  padding: 0 2rem;
+  .logo {
+    float: left;
+    height: 80px;
+    width: 80px;
+  }
+  .header {
+    float: left;
+    font-size: 2rem;
+    margin-left: 10px;
+    height: 80px;
+    line-height: 80px;
+  }
+  .btn-edit {
+    background-color: $color_green_mid;
+    border: 1px solid $color_green_mid;
+    border-radius: 5px;
+    color: $color_green;
+    cursor: pointer;
+    float: right;
+    height: 65px;
+    line-height: 65px;
+    /* centerlize vertically */
+    position: absolute;
+    top: 0;
+    right: 2rem;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    width: 120px;
+    @include transition(all 0.3s ease-in-out);
+    &:hover {
+      background-color: $color_blue_light;
+    }
+  }
+}

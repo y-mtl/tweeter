@@ -16,7 +16,7 @@ Tweeter is a simple, single-page Twitter clone. This App is build with HTML, CSS
 - Chance
 - Mongodb
 
-## Dependencies
+## Dev Dependencies
 
 -Sass
 

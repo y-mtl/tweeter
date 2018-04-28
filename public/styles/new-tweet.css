@@ -16,34 +16,28 @@ main {
     background-color: #eee;
     border: 1px solid #aaa;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     padding: 1rem; }
     main section.new-tweet h2 {
       border-bottom: 1px solid #888;
       margin-top: 0; }
     main section.new-tweet form {
-      /* form error message */
       /* form error message */ }
       main section.new-tweet form textarea {
         border: 1px solid #aaa;
         border-radius: 2px;
-        -moz-border-radius: 2px;
-        -webkit-border-radius: 2px;
         padding: 5px;
         margin-bottom: 10px;
         width: 100%; }
       main section.new-tweet form input[type=submit] {
         border: 1px solid #aaa;
         border-radius: 2px;
-        -moz-border-radius: 2px;
-        -webkit-border-radius: 2px;
         cursor: pointer;
         font-size: 0.9rem;
         padding: 0.2rem 1rem;
         transition: all 0.4s ease-in-out;
         -ms-transition: all 0.4s ease-in-out;
         -moz-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
         -webkit-transition: all 0.4s ease-in-out; }
         main section.new-tweet form input[type=submit]:hover {
           background: #00a087;
@@ -60,14 +54,13 @@ main {
   main #tweets-container article {
     border: 1px solid #ddd;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     margin-top: 25px;
     opacity: 0.5;
     filter: alpha(opacity=50);
     transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     /* social icons to show up when hovering */ }
     main #tweets-container article:hover {
@@ -86,8 +79,6 @@ main {
       main #tweets-container article header img {
         border: 2px solid transparent;
         border-radius: 5px;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
         float: left;
         height: 50px;
         width: 50px; }
@@ -112,6 +103,7 @@ main {
           transition: all 0.3s ease-in-out;
           -ms-transition: all 0.3s ease-in-out;
           -moz-transition: all 0.3s ease-in-out;
+          -o-transition: all 0.3s ease-in-out;
           -webkit-transition: all 0.3s ease-in-out; }
     main #tweets-container article.icons-on footer span i {
       cursor: pointer;

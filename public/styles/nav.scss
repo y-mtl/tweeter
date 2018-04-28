@@ -4,21 +4,15 @@ $color_green_mid:   #046556;
 $color_green:       #00a087;
 $color_grey:        #eee;
 $color_grey_off_white: #aaa;
-$color_blue_light:  #e8fdff;
+$color_blue_light:  #ddfffa;
 $color_red:         #f46542;
 $color_black_dark:  #888;
-
-
-@mixin border-radius($p) {
-    border-radius: $p;
-    -moz-border-radius: $p;
-    -webkit-border-radius: $p;
-}
 
 @mixin transition($r) {
     transition: $r;
     -ms-transition: $r;
     -moz-transition: $r;
+    -o-transition: $r;
     -webkit-transition: $r;
 }
 
@@ -43,7 +37,7 @@ $color_black_dark:  #888;
   .btn-edit {
     background-color: $color_green_mid;
     border: 1px solid $color_green_mid;
-    @include border-radius(5px);
+    border-radius: 5px;
     color: $color_green;
     cursor: pointer;
     float: right;
@@ -59,7 +53,7 @@ $color_black_dark:  #888;
     width: 120px;
     @include transition(all 0.3s ease-in-out);
     &:hover {
-      background-color: #fff;
+      background-color: $color_blue_light;
     }
   }
 }

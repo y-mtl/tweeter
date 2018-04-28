@@ -1,9 +1,9 @@
 $( document ).ready(function(){
   function getDiff(timeData) {
-    var unix = timeData;
+    const unix = timeData;
     const date = new Date();
     const current = date.getTime();
-    let diff_sec = Math.floor((current - unix) / 1000);// to ms to sec
+    const diff_sec = Math.floor((current - unix) / 1000);// to ms to sec
 
     if(diff_sec < 60){
         var time   = Math.floor(diff_sec);
@@ -24,7 +24,7 @@ $( document ).ready(function(){
         time = Math.floor(diff_sec/31536000);
         unit = time > 1 ? ' years' : ' year';
     }
-    var res = time + ' '  + unit + ' ago';
+    const res = time + ' '  + unit + ' ago';
     return res;
   }
 
@@ -42,17 +42,17 @@ $( document ).ready(function(){
 
   function createTweetElement(tweet) {
       const daysDiff = getDiff(tweet.created_at);
-      let $tweet = $('<article>');
-      let $header = $('<header>').appendTo($tweet);
-      let $img = $('<img>').attr('src', tweet.user.avatars.small).addClass('logo').appendTo($header);
-      let $h3 = $('<h3>').text(tweet.user.name).appendTo($header);
-      let $span = $('<span>').text(tweet.user.handle).appendTo($header);
+      const $tweet = $('<article>');
+      const $header = $('<header>').appendTo($tweet);
+      const $img = $('<img>').attr('src', tweet.user.avatars.small).addClass('logo').appendTo($header);
+      const $h3 = $('<h3>').text(tweet.user.name).appendTo($header);
+      const $span = $('<span>').text(tweet.user.handle).appendTo($header);
 
-      let $p = $('<p>').text(tweet.content.text).appendTo($tweet);
+      const $p = $('<p>').text(tweet.content.text).appendTo($tweet);
 
-      let $footer = $('<footer>').appendTo($tweet);
-      let $footer_p = $('<p>').text(daysDiff).appendTo($footer);
-      let $footer_span = $('<span>').html('<i class="fa fa-flag"></i>\n<i class="fa fa-retweet"></i>\n<i class="fa fa-heart"></i>').appendTo($footer_p);
+      const $footer = $('<footer>').appendTo($tweet);
+      const $footer_p = $('<p>').text(daysDiff).appendTo($footer);
+      const $footer_span = $('<span>').html('<i class="fa fa-flag"></i>\n<i class="fa fa-retweet"></i>\n<i class="fa fa-heart"></i>').appendTo($footer_p);
 
       return $tweet;
   }
@@ -78,8 +78,9 @@ $( document ).ready(function(){
     //console.log('Sending it now.');
     var tweetData = $(this).siblings('textarea[name=text]').val();
     let validation = false;
+    let $errorMsg = '';
     if (tweetData.length === 0){
-      $errorMsg = 'You can\'t leave it blank.';
+      $errorMsg = 'Are you sure? nothing to say??';
     } else if (tweetData.length > 140) {
       $errorMsg = 'Character limit: 140!';
     } else {
@@ -89,10 +90,14 @@ $( document ).ready(function(){
     $('.new-tweet .error').text($errorMsg);
 
     $(function() {
-        setTimeout(function() { $('.new-tweet .error').fadeOut(1500); }, 3000)
+        setTimeout(function() {
+          $('.new-tweet .error').fadeOut(1500);
+        }, 3000)
         $('.new-tweet .error').show();
-        setTimeout(function() { $('.new-tweet .error').fadeOut(1500); }, 3000)
-      });
+        setTimeout(function() {
+          $('.new-tweet .error').fadeOut(1500);
+        }, 3000)
+    });
 
     tweetData = 'text=' + tweetData;
 
@@ -104,8 +109,11 @@ $( document ).ready(function(){
         data: $(this).siblings('textarea').serialize(),
         success: function(data, status, jqXHR){
           if (status !== 'success') {
-            let errorMsg = 'There was an error. Please try again.';
+            $errorMsg = 'There was an error. Please try again.';
             throw 'Request was not a success';
+          } else {
+            $('textarea[name="text"]').val('');
+            $('form .counter').text(140);
           }
 
           loadTweets();

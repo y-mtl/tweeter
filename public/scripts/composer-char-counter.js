@@ -1,13 +1,12 @@
 $( document ).ready(function(){
 
   $('textarea').on('change', function(){
-    var textInput = $(this).val();
-    //console.log(textInput);
+    const textInput = $(this).val();
   });
   $('textarea').on('keyup', function(){
     //var count = this.value.length;
-    var charCurrent = $(this).val().length;
-    var charCount = 0;
+    const charCurrent = $(this).val().length;
+    let charCount = 0;
     if( 140 - charCurrent >= 0 ) {
       charCount = 140 - charCurrent;
       $(this).siblings('span.counter').removeClass('exceed');

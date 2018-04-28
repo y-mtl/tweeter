@@ -1,8 +1,6 @@
 Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
-
-This Single Page App (SPA) is build with HTML, CSS (SCSS), JS, jQuery and AJAX on the client-side and Node, Express and MongoDB on the server-side.
+Tweeter is a simple, single-page Twitter clone. This App is build with HTML, CSS (SCSS), JS, jQuery and AJAX on the client-side and Node, Express and MongoDB on the server-side.
 
 ## Final Product
 !["screenshot description"](https://github.com/y-mtl/tweeter/blob/master/docs/top.png)
